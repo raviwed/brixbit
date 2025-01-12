@@ -1,0 +1,125 @@
+{
+  "name": "@brixbit/react-sdk",
+  "version": "5.1.0",
+  "description": "BRIXBIT client SDK for React apps written in TypeScript",
+  "keywords": [
+    "brixbit",
+    "messaging",
+    "web3",
+    "sdk",
+    "js",
+    "ts",
+    "javascript",
+    "typescript",
+    "react",
+    "reactjs",
+    "react-hooks",
+    "hooks"
+  ],
+  "homepage": "https://github.com/brixbit/brixbit-web",
+  "bugs": {
+    "url": "https://github.com/brixbit/brixbit-web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brixbit/brixbit-web.git",
+    "directory": "packages/react-sdk"
+  },
+  "license": "MIT",
+  "author": "BRIXBIT Labs <eng@brixbit.com>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "module": "lib/index.js",
+  "browser": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "!src/**/*.test.*",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "yarn clean:lib && yarn rollup -c",
+    "clean": "rm -rf .turbo && rm -rf node_modules && yarn clean:lib",
+    "clean:lib": "rm -rf lib",
+    "dev": "yarn clean:lib && yarn rollup -c --watch",
+    "format": "yarn format:base -w .",
+    "format:base": "prettier --ignore-path ../../.gitignore",
+    "format:check": "yarn format:base -c .",
+    "lint": "eslint . --ignore-path ../../.gitignore",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc",
+    "typedoc": "typedoc"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome versions",
+      "last 3 firefox versions",
+      "last 3 safari versions"
+    ]
+  },
+  "dependencies": {
+    "@brixbit/content-type-reaction": "^1.1.6",
+    "@brixbit/content-type-remote-attachment": "^1.1.7",
+    "@brixbit/content-type-reply": "^1.1.8",
+    "@brixbit/brixbit-js": "^11.4.1",
+    "async-mutex": "^0.4.1",
+    "date-fns": "^3.3.1",
+    "dexie": "^3.2.6",
+    "dexie-react-hooks": "^1.1.7",
+    "react": "^18.2.0",
+    "uuid": "^9.0.1",
+    "viem": "^2.7.15",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/react": "^18.2.59",
+    "@types/react-dom": "^18.2.19",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.3.1",
+    "@brixbit/tsconfig": "workspace:*",
+    "eslint": "^8.57.0",
+    "eslint-config-brixbit-web": "workspace:*",
+    "fake-indexeddb": "^5.0.2",
+    "happy-dom": "^13.6.2",
+    "prettier": "^3.2.5",
+    "react-dom": "^18.2.0",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-tsconfig-paths": "^1.5.2",
+    "typedoc": "^0.25.9",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vite-tsconfig-paths": "^4.3.1",
+    "vitest": "^1.3.1"
+  },
+  "peerDependencies": {
+    "@brixbit/brixbit-js": "^11.4.1",
+    "react": ">=16.14"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  }
+}
